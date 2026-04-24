@@ -1,0 +1,26 @@
+{
+  "name": "erp-ai-system",
+  "version": "1.0.0",
+  "description": "AI-powered ERP System using MERN Stack",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "npm start --prefix server",
+    "build": "npm run build --prefix client",
+    "seed": "npm run seed --prefix server",
+    "install-all": "npm install && npm install --prefix server && npm install --prefix client"
+  },
+  "keywords": [
+    "erp",
+    "mern",
+    "ai",
+    "claude",
+    "enterprise",
+    "management"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
