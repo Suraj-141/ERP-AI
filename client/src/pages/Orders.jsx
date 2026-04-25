@@ -35,11 +35,11 @@ const Orders = () => {
 
   const getStatusColor = (status) => {
     const colors = {
-      Pending: 'amber',
-      Processing: 'blue',
-      Shipped: 'blue',
-      Delivered: 'teal',
-      Cancelled: 'red',
+      pending: 'amber',
+      processing: 'blue',
+      shipped: 'blue',
+      delivered: 'teal',
+      cancelled: 'red',
     };
     return colors[status] || 'slate';
   };
