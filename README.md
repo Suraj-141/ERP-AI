@@ -1,203 +1,63 @@
-# AI-Powered ERP System
+# Nexus ERP
 
-A full-stack Enterprise Resource Planning (ERP) system built with the MERN stack (MongoDB, Express.js, React + Vite, Node.js) and integrated with Claude AI for intelligent business insights.
+An ERP system with AI assistant. MERN stack (React, Node, MongoDB) + Gemini AI.
 
-![MERN Stack](https://img.shields.io/badge/Stack-MERN-brightgreen)
-![MongoDB](https://img.shields.io/badge/MongoDB-4.4%2B-green)
-![React](https://img.shields.io/badge/React-18.2%2B-blue)
-![Node.js](https://img.shields.io/badge/Node.js-14%2B-yellow)
-![Claude AI](https://img.shields.io/badge/AI-Claude-purple)
+## Setup
 
-## 🌟 Features
+**Prerequisites:**
+- Node.js 16+
+- MongoDB (Atlas or local)
+- Gemini API key
 
-- **🔐 Authentication & Authorization**
-  - JWT-based authentication
-  - Role-based access control (Admin, Manager, Employee)
-  - Secure password hashing with bcryptjs
-
-- **📊 Dashboard**
-  - KPI cards (Revenue, Orders, Stock, Employees)
-  - Revenue trend chart (Last 6 months)
-  - Order status breakdown
-  - Financial summary
-
-- **📦 Inventory Management**
-  - Product CRUD operations
-  - Real-time stock tracking
-  - Low stock alerts
-  - Category organization
-  - Supplier management
-
-- **🛒 Order Management**
-  - Order tracking system
-  - Order status management (Pending, Processing, Shipped, Delivered, Cancelled)
-  - Customer information
-  - Item details with pricing
-
-- **💰 Finance Management**
-  - Income and expense tracking
-  - Transaction categorization
-  - Summary cards with totals
-  - Monthly financial analysis
-
-- **👥 Employee Management**
-  - Employee directory
-  - Department organization
-  - Salary tracking
-  - Leave balance management
-  - Active/Inactive status
-
-- **🤖 AI Assistant (Claude AI)**
-  - Natural language queries about business data
-  - Intelligent data aggregation
-  - Business insights and analytics
-  - Context-aware responses
-  - Starter suggestions for common queries
-
-## 🛠️ Tech Stack
-
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - ODM library
-- **bcryptjs** - Password hashing
-- **jsonwebtoken** - JWT authentication
-- **@anthropic-ai/sdk** - Claude AI integration
-
-### Frontend
-- **React 18** - UI library
-- **Vite** - Build tool
-- **React Router v6** - Navigation
-- **Axios** - HTTP client
-- **Recharts** - Data visualization
-- **Tailwind CSS** - Styling
-
-## 📋 Prerequisites
-
-- Node.js 14+ and npm
-- MongoDB 4.4+ (local or Atlas)
-- Anthropic API Key (get from [console.anthropic.com](https://console.anthropic.com))
-
-## 🚀 Quick Start
-
-### 1. Clone & Setup
-
+**Installation:**
 ```bash
-# Navigate to backend
-cd server
-npm install
-
-# Navigate to frontend
-cd ../client
-npm install
+cd server && npm install
+cd ../client && npm install
 ```
 
-### 2. Configure Environment Variables
-
-**Server (.env)**
+**Environment (.env in server/):**
 ```
-MONGO_URI=mongodb://localhost:27017/erp-ai
-JWT_SECRET=your_jwt_secret_key
-ANTHROPIC_API_KEY=your_anthropic_api_key
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=any_secret_key
+GEMINI_API_KEY=your_gemini_key
 PORT=5000
 CLIENT_URL=http://localhost:5173
 ```
 
-**Client (.env)**
-```
-VITE_API_URL=http://localhost:5000/api
-```
-
-### 3. Start MongoDB
-
+**Run:**
 ```bash
-# If using local MongoDB
-mongod
+# Terminal 1 - Backend
+cd server && npm start
 
-# Or use MongoDB Atlas cloud database
+# Terminal 2 - Frontend  
+cd client && npm run dev
 ```
 
-### 4. Seed Database
+Access at `http://localhost:5173`
 
-```bash
-cd server
-npm run seed
-```
+## Demo Login
 
-This creates:
-- 3 demo users (admin@erp.com, manager@erp.com, employee@erp.com)
-- 20 sample products
-- 15 sample orders
-- 30 sample transactions
-- 8 sample employees
+- Email: `admin@erp.com`
+- Password: `password123`
 
-All demo accounts use password: `password123`
+(Also available: manager@erp.com, employee@erp.com)
 
-### 5. Start the Application
+## Features
 
-**Terminal 1 - Backend**
-```bash
-cd server
-npm run dev
-```
+- Dashboard with KPIs and charts
+- Inventory management with low stock alerts
+- Order tracking
+- Finance/transactions
+- Employee management
+- AI assistant for business queries
 
-Server runs on `http://localhost:5000`
+## Tech
 
-**Terminal 2 - Frontend**
-```bash
-cd client
-npm run dev
-```
+**Backend:** Node.js, Express, MongoDB, Mongoose, JWT
 
-Client runs on `http://localhost:5173`
+**Frontend:** React 18, Vite, Tailwind CSS, Recharts
 
-## 📖 API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user (protected)
-
-### Dashboard
-- `GET /api/dashboard/stats` - Get dashboard statistics (protected)
-
-### Inventory
-- `GET /api/inventory` - List all products (protected)
-- `POST /api/inventory` - Create product (protected, manager/admin)
-- `PUT /api/inventory/:id` - Update product (protected, manager/admin)
-- `DELETE /api/inventory/:id` - Delete product (protected, manager/admin)
-
-### Orders
-- `GET /api/orders` - List all orders (protected)
-- `POST /api/orders` - Create order (protected)
-- `PUT /api/orders/:id/status` - Update order status (protected, manager/admin)
-
-### Finance
-- `GET /api/finance` - List all transactions (protected)
-- `POST /api/finance` - Create transaction (protected, manager/admin)
-
-### Employees
-- `GET /api/employees` - List all employees (protected)
-- `POST /api/employees` - Create employee (protected, manager/admin)
-- `PUT /api/employees/:id` - Update employee (protected, manager/admin)
-
-### AI Assistant
-- `POST /api/ai/query` - Ask AI question about business data (protected)
-
-## 🎯 Demo Accounts
-
-| Email | Password | Role |
-|-------|----------|------|
-| admin@erp.com | password123 | Admin |
-| manager@erp.com | password123 | Manager |
-| employee@erp.com | password123 | Employee |
-
-## 🤖 AI Assistant Examples
-
-Ask the AI assistant questions like:
-- "What products are low on stock?"
-- "Show this month's total revenue"
+**AI:** Google Generative AI (Gemini)
 - "How many orders are pending?"
 - "Which department has the most employees?"
 - "What's our net profit?"
