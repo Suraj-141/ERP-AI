@@ -228,4 +228,3 @@ For issues and questions, please open an issue on GitHub or contact the developm
 
 ---
 
-**Built with ❤️ using MERN Stack and Claude AI**
